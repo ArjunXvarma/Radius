@@ -6,16 +6,16 @@ using UnityEngine;
 public class UImanager : MonoBehaviour
 {
     public Image target;
-    Dictionary<string, Color> colors = new Dictionary<string, Color>();
-    string[] colorNames = new string[] {"Blue", "White", "Orange", "Green"};
+    Player player;
+    Dictionary<string, Color> colors;
+    string[] colorNames;
 
     // Start is called before the first frame update
     void Start()
     {
-        colors.Add("Blue", new Color(27f/255, 156f/255, 252f/255));
-        colors.Add("White", new Color(248f/255, 239f/255, 186f/255));
-        colors.Add("Orange", new Color(249f/255, 127f/255, 81f/255));
-        colors.Add("Green", new Color(85f/255, 230f/255, 193f/255));
+        player = GameObject.Find("Player").GetComponent<Player>();
+        colors = player.colorsDictionary();
+        colorNames = player.colorNamesArray();
         target.color = colors["Blue"];
     }
 
@@ -25,11 +25,13 @@ public class UImanager : MonoBehaviour
         
     }
 
+    // changes the target image's color
     public void changeTargetColor()
     {
         target.color = colors[colorNames[Random.RandomRange(0, colorNames.Length)]];
     }
 
+    // returns the color of the target image
     public Color targetColor()
     {
         return target.color; 
