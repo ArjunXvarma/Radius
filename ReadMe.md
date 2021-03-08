@@ -1,3 +1,0 @@
-# Radius
-
-# Hello World

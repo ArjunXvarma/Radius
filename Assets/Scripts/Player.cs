@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // This is a comment
     public float jumpForce = 10f;
     public Rigidbody2D rigidbody;
     bool touched = false;
