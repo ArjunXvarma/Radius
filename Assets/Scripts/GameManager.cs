@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         // Creating an array of Vector3 values, of size 2, to randomly pick the 
         // x position(either left or right) of the barriers(the ones that are not circular in shape)
-        Vector3[] leftRightPos = new Vector3[] {new Vector3(-1.3f, 0, 0), new Vector3(1.3f,0,0)};
+        Vector3[] leftRightPos = new Vector3[] {new Vector3(-1.2f, 0, 0), new Vector3(1.2f,0,0)};
         Vector3 pos;
 
         // Adding if-checks to assign the correct position to the barrier 

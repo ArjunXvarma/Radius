@@ -16,7 +16,9 @@ public class UImanager : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Player>();
         colors = player.colorsDictionary();
         colorNames = player.colorNamesArray();
-        target.color = colors["Blue"];
+
+        // Assigns a random color to the target Image
+        target.color = colors[colorNames[Random.RandomRange(0, colorNames.Length)]];
     }
 
     // Update is called once per frame
