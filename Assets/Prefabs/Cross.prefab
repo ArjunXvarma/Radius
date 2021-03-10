@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2898854796776527522}
   - component: {fileID: 1782728447510032611}
+  - component: {fileID: 6912695226635765702}
   m_Layer: 0
   m_Name: Cross
   m_TagString: Untagged
@@ -48,6 +49,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+--- !u!23 &6912695226635765702
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603329484605695593}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2158580556401200668
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,8 +186,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.99999994, y: 1.9999999}
+  m_Offset: {x: -0.00038854772, y: 6.6249055e-12}
+  m_Size: {x: 0.30759022, y: 1.9999998}
   m_Direction: 0
 --- !u!1 &4563094698029021167
 GameObject:
@@ -243,8 +285,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.0000001, y: 2.0000002}
+  m_Offset: {x: -0.013322649, y: 0.009889509}
+  m_Size: {x: 0.2867369, y: 1.9999999}
   m_Direction: 0
 --- !u!1 &6452209348461888475
 GameObject:
@@ -342,8 +384,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.99999994, y: 1.9999999}
+  m_Offset: {x: -0.010761146, y: -0.007988079}
+  m_Size: {x: 0.29387707, y: 1.9999999}
   m_Direction: 0
 --- !u!1 &8879540614684183988
 GameObject:

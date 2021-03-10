@@ -17,7 +17,7 @@ public class ScreenRes : MonoBehaviour
         {
             if (resolutions[i].width == currentRes.width && resolutions[i].height == currentRes.height)
             {
-                Screen.SetResolution(1080, 1920, Screen.fullScreen);
+                Screen.SetResolution(Screen.width, Screen.height, Screen.fullScreen);
             }
         }
     }
