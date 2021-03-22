@@ -39,7 +39,7 @@ public class UImanager : MonoBehaviour
     // changes the target image's color
     public IEnumerator changeTargetColor()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         target.color = colors[colorNames[Random.RandomRange(0, colorNames.Length)]];
     }
 }

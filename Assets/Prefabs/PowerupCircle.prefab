@@ -628,13 +628,15 @@ GameObject:
   - component: {fileID: 5983602391761793933}
   - component: {fileID: 993507825482354826}
   - component: {fileID: 5234734466914905372}
+  - component: {fileID: 4788091818664150404}
+  - component: {fileID: 9002125654911874616}
   m_Layer: 0
   m_Name: PowerupIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1640879621781722103
 Transform:
   m_ObjectHideFlags: 0
@@ -723,7 +725,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -739,3 +741,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.79, y: 7.76}
   m_EdgeRadius: 0
+--- !u!114 &4788091818664150404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6228291857376162603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665eabfe533c19a45b24f518c7afe9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  duration: 5
+--- !u!114 &9002125654911874616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6228291857376162603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a430c8393a5034ba40c079fd53c277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScale: {x: 0.03, y: 0.03, z: 0}
+  speed: 4.5
+  duration: 1
+  repeatable: 1
