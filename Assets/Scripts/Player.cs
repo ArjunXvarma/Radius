@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // constantly changes the color of the player renderer if the neutral powerup is active
         if (neutralPowerup)
             transistionColor();
 
@@ -66,13 +67,8 @@ public class Player : MonoBehaviour
             rigidbody.velocity = Vector2.up * jumpForce;
         }
 
-        float alpha = 1.0f;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(Color.green, 0.0f), new GradientColorKey(Color.red, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
-        );
-        trail.colorGradient = gradient;
+        // Sets the trail renderer's color to the player renderer's color
+        setTrailColor();
 
         // Tracks the health bar UI of the player
         if (health == 2)
@@ -96,6 +92,13 @@ public class Player : MonoBehaviour
             healthBars[1].color = healthBarImage;
             healthBars[2].color = healthBarImage;
         }  
+
+        else if (health == 3)
+        {
+            healthBars[0].color = red;
+            healthBars[1].color = red;
+            healthBars[2].color = red;
+        }
         
         if (health == 0)
             SceneManager.LoadScene(0);
@@ -108,7 +111,7 @@ public class Player : MonoBehaviour
     {
         // Checking if the object that has collided with the player has the same color 
         // as the target color
-        if (colors[other.name] == ui.targetColor() && other.name != "PowerupIcon")
+        if (colors[other.name] == ui.targetColor())
         {
             render.color = colors[other.name];
             StartCoroutine(ui.changeTargetColor());
@@ -116,15 +119,26 @@ public class Player : MonoBehaviour
         }
         else if (colors[other.name] != ui.targetColor() && !neutralPowerup)
             health--;
+        
+        // Increments the score by 5 if the player has collected the neutral powerup
+        if (neutralPowerup && colors[other.name] != ui.targetColor())
+            score += 5;
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "PowerupIcon")
         {
-            //transistionColor();
             neutralPowerup = true;
             StartCoroutine(neutralCountDown());
+            Destroy(other.gameObject);
+        }
+
+        if (other.name == "HealthPowerup")
+        {
+            if (health < 3)
+                health++;
             Destroy(other.gameObject);
         }
     }
@@ -143,6 +157,47 @@ public class Player : MonoBehaviour
                         // present in the barrier array are not present in the scene
         else    
             return false;
+    }
+
+    void transistionColor()
+    {
+        // Lerps between the current color and the next color in the transColors Array
+        render.color = Color.Lerp(render.color, transColors[colorIndex], lerpTime * Time.deltaTime);
+        t = Mathf.Lerp(t, 1f, lerpTime * Time.deltaTime);
+        render.color = new Color(render.color.r, render.color.g, render.color.b, 1);
+
+        // If t is greater than 0.9f than decrease the value of t to 0
+        if (t > 0.9f)
+        {
+            t = 0;
+            colorIndex++;
+            // changes the colorIndex to 0 if it is greater than the length of the transColor Array
+            colorIndex = (colorIndex >= transColors.Length) ? 0 : colorIndex;
+        }
+    }
+
+    void setTrailColor()
+    {   
+        // Stores the color value at the time instant
+        GradientColorKey[] colorKey;
+        // Stores the alpha value at the time instant
+        GradientAlphaKey[] alphaKey;
+        Gradient gradient = new Gradient();
+
+        colorKey = new GradientColorKey[1];
+        alphaKey = new GradientAlphaKey[2];
+
+        colorKey[0].color = render.color;
+        colorKey[0].time = 0.5f;
+        
+        alphaKey[0].alpha = 0.5f;
+        alphaKey[0].time = 0.0f;
+        alphaKey[1].alpha = 0.0f;
+        alphaKey[1].time = 1.0f;
+        
+        // Assigning the colorKey and alphaKey to the gradient
+        gradient.SetKeys(colorKey, alphaKey);
+        trail.colorGradient = gradient;
     }
 
     public void touchTrue()
@@ -166,52 +221,6 @@ public class Player : MonoBehaviour
     {
         return colorNames;
     }
-
-    void transistionColor()
-    {
-        render.color = Color.Lerp(render.color, transColors[colorIndex], lerpTime * Time.deltaTime);
-        t = Mathf.Lerp(t, 1f, lerpTime * Time.deltaTime);
-        render.color = new Color(render.color.r, render.color.g, render.color.b, 1);
-
-        if (t > 0.9f)
-        {
-            t = 0;
-            colorIndex++;
-            colorIndex = (colorIndex >= transColors.Length) ? 0 : colorIndex;
-        }
-    }
-
-    void setTrailColor()
-    {   
-        // GradientColorKey[] colorKey;
-        // GradientAlphaKey[] alphaKey;
-        // Gradient gradient = new Gradient();
-
-        // colorKey = new GradientColorKey[1];
-        // alphaKey = new GradientAlphaKey[2];
-
-        // colorKey[0].color = render.color;
-        // colorKey[0].time = 0.5f;
-        
-
-        // alphaKey[0].alpha = 1.0f;
-        // alphaKey[0].time = 0.0f;
-        // alphaKey[1].alpha = 0.0f;
-        // alphaKey[1].time = 1.0f;
-        
-
-        // gradient.SetKeys(colorKey, alphaKey);
-
-        // trail.colorGradient = gradient;
-        float alpha = 1.0f;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(Color.green, 0.0f), new GradientColorKey(Color.red, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
-        );
-        trail.colorGradient = gradient;
-    }
-
     IEnumerator neutralCountDown()
     {
         yield return new WaitForSeconds(10.0f);

@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         Vector3 pos;
 
         // Adding if-checks to assign the correct position to the barrier 
-        if (circleIndex > 1)
+        if (circleIndex > 2)
             pos = (transform.up * ySpawn) + leftRightPos[Random.RandomRange(0, leftRightPos.Length)];
         else
             pos = transform.up * ySpawn;

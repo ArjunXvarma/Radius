@@ -1,6 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ChangeScale
+    - FixedRotation
     - GameManager
     - Player
     - Rotator
@@ -63,6 +65,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 96
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -72,25 +76,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2312}
     - Class: 114
-      Script: {instanceID: 2436}
+      Script: {instanceID: 2354}
     - Class: 114
-      Script: {instanceID: 2582}
+      Script: {instanceID: 2438}
     - Class: 114
-      Script: {instanceID: 2752}
+      Script: {instanceID: 2584}
     - Class: 114
-      Script: {instanceID: 2962}
+      Script: {instanceID: 2754}
     - Class: 114
-      Script: {instanceID: 3550}
+      Script: {instanceID: 2850}
     - Class: 114
-      Script: {instanceID: 3706}
+      Script: {instanceID: 2966}
     - Class: 114
-      Script: {instanceID: 3906}
+      Script: {instanceID: 3554}
     - Class: 114
-      Script: {instanceID: 4372}
+      Script: {instanceID: 3710}
     - Class: 114
-      Script: {instanceID: 4920}
+      Script: {instanceID: 3910}
     - Class: 114
-      Script: {instanceID: 16390}
+      Script: {instanceID: 4376}
+    - Class: 114
+      Script: {instanceID: 4924}
+    - Class: 114
+      Script: {instanceID: 16446}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -250,6 +258,12 @@ ScriptsOnlyBuild:
     className: EnumerableTestState
   - hash:
       serializedVersion: 2
+      Hash: 947dfb89e9d95288566d829768f4a1be
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChangeScale
+  - hash:
+      serializedVersion: 2
       Hash: a1aa98c78061c6f03a8c124cda576e67
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -332,6 +346,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: fc007199c4ed4f920b8b432e89255192
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FixedRotation
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
@@ -592,7 +612,7 @@ ScriptsOnlyBuild:
     className: SpriteLibraryAsset
   - hash:
       serializedVersion: 2
-      Hash: 747d26143b1f614a0dea1fa63b9bdd09
+      Hash: 78f6762b6448d18176fb44b792dfb6f8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
